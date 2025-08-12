@@ -1,5 +1,7 @@
 package com.rzjaffery.hms;
 
+import static android.os.Build.VERSION_CODES.R;
+
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,7 +10,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.rzjaffery.application.R;
 
 public class MainActivity extends AppCompatActivity {
 
