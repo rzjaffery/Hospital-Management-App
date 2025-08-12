@@ -1,7 +1,6 @@
 package com.rzjaffery.hms.ui.auth;
 
 import android.os.Bundle;
-import android.telecom.Call;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,14 +10,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.api.Response;
 import com.rzjaffery.hms.R;
-import com.rzjaffery.hms.data.model.RegisterRequest;
 import com.rzjaffery.hms.data.model.User;
 import com.rzjaffery.hms.network.ApiClient;
 import com.rzjaffery.hms.network.ApiService;
 
-import javax.security.auth.callback.Callback;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText etName, etEmail, etPassword, etConfirmPassword;
@@ -79,37 +78,24 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(String name, String email, String password, String role) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/") // Emulator to localhost
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiService apiService = retrofit.create(ApiService.class);
-
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
         User user = new User(name, email, password, role);
 
-        apiService.registerUser(user).equals(new Callback<String>() {
-            private Call call;
-            private Response<String> response;
-
+        Call<String> call = apiService.registerUser(user);
+        call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call call, Response<String> response) {
-                this.call = call;
-                this.response = response;
-                if (response.setResult()) {
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Registration failed! Code: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(RegisterActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
-
-
 }
