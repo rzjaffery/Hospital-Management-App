@@ -1,6 +1,6 @@
 package com.rzjaffery.hms.service;
 
-import com.rzjaffery.hms.entity.User;
+import com.rzjaffery.hms.model.User;
 import com.rzjaffery.hms.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

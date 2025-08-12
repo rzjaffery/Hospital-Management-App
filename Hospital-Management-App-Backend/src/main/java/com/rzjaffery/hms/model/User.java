@@ -1,4 +1,4 @@
-package com.rzjaffery.hms.entity;
+package com.rzjaffery.hms.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

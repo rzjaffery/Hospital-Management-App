@@ -2,16 +2,14 @@ package com.rzjaffery.hms.controller;
 
 import com.rzjaffery.hms.dto.LoginRequest;
 import com.rzjaffery.hms.dto.RegisterRequest;
-import com.rzjaffery.hms.entity.User;
+import com.rzjaffery.hms.model.User;
 import com.rzjaffery.hms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "*")
 
 public class AuthController {
 

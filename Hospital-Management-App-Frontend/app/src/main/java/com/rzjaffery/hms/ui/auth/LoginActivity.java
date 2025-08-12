@@ -1,4 +1,4 @@
-package com.rzjaffery.hms.utils;
+package com.rzjaffery.hms.ui.auth;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,6 +1,6 @@
 package com.rzjaffery.hms.repository;
 
-import com.rzjaffery.hms.entity.User;
+import com.rzjaffery.hms.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
