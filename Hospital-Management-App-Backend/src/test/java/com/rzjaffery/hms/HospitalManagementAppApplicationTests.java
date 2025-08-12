@@ -1,4 +1,4 @@
-package com.rzjaffery.Hospital.Management.App;
+package com.rzjaffery.hms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,13 +1,13 @@
-package com.rzjaffery.Hospital.Management.App;
+package com.rzjaffery.hms;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import static org.springframework.boot.SpringApplication.run;
 
 @SpringBootApplication
 public class HospitalManagementAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HospitalManagementAppApplication.class, args);
+		run(HospitalManagementAppApplication.class, args);
 	}
 
 }

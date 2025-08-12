@@ -1,4 +1,4 @@
-package com.rzjaffery.application;
+package com.rzjaffery.hms;
 
 import org.junit.Test;
 

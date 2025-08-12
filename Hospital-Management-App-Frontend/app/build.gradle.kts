@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.rzjaffery.application"
+    namespace = "com.rzjaffery.hms"
     compileSdk = 35
 
     defaultConfig {
