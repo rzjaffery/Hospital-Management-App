@@ -1,5 +1,6 @@
 package com.rzjaffery.hms.ui.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,6 +15,9 @@ import com.rzjaffery.hms.R;
 import com.rzjaffery.hms.data.model.User;
 import com.rzjaffery.hms.network.ApiClient;
 import com.rzjaffery.hms.network.ApiService;
+import com.rzjaffery.hms.ui.admin.AdminDashboardActivity;
+import com.rzjaffery.hms.ui.doctor.DoctorDashboardActivity;
+import com.rzjaffery.hms.ui.patient.PatientDashboardActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -87,6 +91,29 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+
+                    // Redirect based on selected role
+                    Intent intent;
+                    switch (role.toLowerCase()) {
+                        case "admin":
+                            intent = new Intent(RegisterActivity.this, AdminDashboardActivity.class);
+                            break;
+                        case "doctor":
+                            intent = new Intent(RegisterActivity.this, DoctorDashboardActivity.class);
+                            break;
+                        case "patient":
+                            intent = new Intent(RegisterActivity.this, PatientDashboardActivity.class);
+                            break;
+                        default:
+                            Toast.makeText(RegisterActivity.this, "Unknown role: " + role, Toast.LENGTH_SHORT).show();
+                            return;
+                    }
+
+                    intent.putExtra("username", name);
+                    intent.putExtra("role", role);
+                    startActivity(intent);
+                    finish();
+
                 } else {
                     Toast.makeText(RegisterActivity.this, "Registration failed! Code: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
@@ -98,4 +125,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
 }

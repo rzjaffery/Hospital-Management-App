@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_appointments" android:title="My Appointments" android:icon="@drawable/appointments_icon" />
+    <item android:id="@+id/nav_patients" android:title="Patient Records" android:icon="@drawable/patient_records_icon" />
+    <item android:id="@+id/nav_prescriptions" android:title="Prescriptions" android:icon="@drawable/prescription_icon" />
+    <item android:id="@+id/nav_profile" android:title="Profile" android:icon="@drawable/profile_icon" />
+    <item android:id="@+id/nav_logout" android:title="Logout" android:icon="@drawable/logout_icon" />
+</menu>
