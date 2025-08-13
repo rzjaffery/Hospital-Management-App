@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.rzjaffery.application" />
+                  <option name="mobileSdkAppId" value="1:349881502666:android:8231bfd69ecf09c29d5d33" />
+                  <option name="projectId" value="hospital-management-syst-6b8b0" />
+                  <option name="projectNumber" value="349881502666" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

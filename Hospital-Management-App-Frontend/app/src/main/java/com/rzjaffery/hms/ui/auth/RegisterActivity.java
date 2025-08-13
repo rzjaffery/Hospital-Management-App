@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.rzjaffery.hms.R;
 import com.rzjaffery.hms.data.model.User;
 import com.rzjaffery.hms.network.ApiClient;
@@ -28,6 +29,10 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner spinnerRole;
     CheckBox cbTerms;
     Button btnRegister;
+
+    FirebaseAuth auth;
+    FirebaseFirestore db;
+
 
     String[] roles = {"Select Role", "Admin", "Patient", "Doctor"};
 
